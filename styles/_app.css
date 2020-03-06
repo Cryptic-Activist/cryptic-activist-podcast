@@ -1,0 +1,19 @@
+html {
+  overflow-y: overlay;
+  overflow-x:hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #ffcd2b;
+  border: 1px solid #000;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #ecbe29;
+
+}
