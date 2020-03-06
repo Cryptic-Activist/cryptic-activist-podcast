@@ -1,102 +1,111 @@
 /* eslint-disable no-tabs */
-/* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
 import { rotate } from '../../Animations/animations';
 
-export const ColumnLeft = styled.div`
-	padding: 0 15px 0 0;
+export const Wrapper = styled.a`
+	margin: 0 auto 20px auto;
+	display: table;
+	transition: all 0.2s ease-in-out;
+	border-radius: 4px;
+	width: 99%;
+	&:hover {
+		text-decoration: none;
+		/* box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25); */
+	}
 	@media (max-width: 768px) {
-		padding: 0 7px 0 15px;
-	}
-	@media (max-width: 576px) {
-		padding: 0 15px 0 15px;
+		margin-bottom: 12px;
 	}
 `;
 
-export const ColumnRight = styled.div`
-	padding: 0 15px 0 0;
-	@media (max-width: 768px) {
-		padding: 0 15px 0 7px;
-	}
-	@media (max-width: 576px) {
-		padding: 0 15px 0 15px;
-	}
-`;
-
-export const BlogTopPost = styled.div`
-	width: 100%;
-`;
-
-export const BlogToPostMainDiv = styled.div`
-	height: 400px;
-	width: 100%;
-`;
-
-export const Card = styled.a`
-  text-decoration: none;
-  margin-bottom: 20px;
-  &:hover {
-    text-decoration: none;
-  }
-`;
-
-export const CardTopMain = styled.a`
-  text-decoration: none;
-  margin-bottom: 20px;
-	width: 100%;
-	height: 400px;
-  &:hover {
-    text-decoration: none;
-  }
-`;
-
-export const Cover = styled.div`
-	height: 170px;
-	width: 100%;
+export const Cover = styled.img`
+	height: 120px;
+	width: 120px;
+	display: table;
+	margin: 0 auto;
+	border-radius: 10px;
 	@media (max-width: 1199px) {
-		height: 130px;
+			width: 100px;
+			height: 100px;
+			border-radius: 9px;
 	}
-	@media (max-width: 574px) {
-		height: 145px;
+	@media (max-width: 424px) {
+			width: 100px;
+			height: 100px;
 	}
 `;
 
-export const PublishedOn = styled.b`
-  color: #333;
-  font-size: 12px;
-`;
-
-export const Title = styled.h5`
-  color: #333;
-  font-size: 18px;
-	margin: 5px 0;
-  font-weight: 900;
-`;
-
-export const CategoryDiv = styled.div`
-	background: #0058e4;
-	padding: 5px 8px;
-	top: 136px;
-	left: 15px;
+export const InfoDiv = styled.div`
 	position: absolute;
-	@media (max-width: 1199px) {
-		top: 96px;
+	top: 0px;
+`;
+
+export const Ul = styled.ul`
+	height: 100%;
+`;
+
+export const Title = styled.h4`
+	color: #333;
+	font-weight: 900;
+	font-size: 18px;
+	margin-bottom: 0px;
+	max-width: 245px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+	@media (max-width: 991px) {
+		font-size: 17px;
 	}
-	@media (max-width: 574px) {
-		top: 111px;
+	@media (max-width: 768px) {
+		font-size: 16px;
+	}
+	@media (max-width: 498px) {
+		font-size: 16px;
+		line-height: 20px;
+		margin-top: 2px;
+		margin-bottom: 2px;
+	}
+	@media (max-width: 464px) {
+		font-size: 15px;
+		line-height: 17px;
 	}
 `;
 
-export const Category = styled.span`
-	color: #333;
-	text-align: center;
-	color: #fff;
-	font-weight: 700;
-	font-size: 15px;
-	@media (max-width: 1199px) {
+export const UploadedOn = styled.p`
+	color: #999;
+	margin-bottom: 0px;
+	font-size: 13px;
+	text-transform: uppercase;
+	@media (max-width: 991px) {
+		font-size: 12px;
+	}
+	@media (max-width: 420px) {
+		font-size: 11px;
+	}
+	@media (max-width: 398px) {
+		font-size: 10px;
+	}
+	@media (max-width: 340px) {
+		font-size: 9px;
+	}
+`;
+
+export const Category = styled.b`
+	color: #999;
+	margin-bottom: 0px;
+	float: left;
+	font-size: 14px;
+	line-height: 24px;
+	@media (max-width: 991px) {
 		font-size: 13px;
+	}
+	@media (max-width: 420px) {
+		font-size: 12px;
+	}
+	@media (max-width: 398px) {
+		font-size: 11px;
+	}
+	@media (max-width: 340px) {
+		font-size: 10px;
 	}
 `;
 
@@ -108,29 +117,6 @@ export const LoadingAllContent = styled.div`
 		font-size: 18px;
 		display: table;
 		margin: 25px auto;
-	}
-`;
-
-export const PostList = styled.ul`
-	margin-bottom: 0px;
-	padding-left: 0;
-	div {
-		overflow: hidden;
-		::-webkit-scrollbar {
-			display: none;
-		}
-
-		::-webkit-scrollbar-track {
-			display: none;
-		}
-
-		::-webkit-scrollbar-thumb {
-			display: none;
-		}
-
-		::-webkit-scrollbar-thumb:hover {
-			display: none;
-		}
 	}
 `;
 
@@ -153,53 +139,7 @@ export const NoContentP = styled.p`
 	display: table;
 `;
 
-export const ByTagDiv = styled.ul`
-	display: block;
-	margin: 8px 0;
-	padding-left: 0;
-`;
-
-export const ByTag = styled.b`
-	color: #333;
-	font-size: 11px;
-	margin: 15px 5px 15px 0px;
-	font-weight: 900;
-	width: 20px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-`;
-
-export const ByTagName = styled.span`
-	color: #999;
-	font-size: 13px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-`;
-
 export const StickyWrapper = styled.div`
-	margin-top: 0px;
 	position: sticky;
-	top: 55px;
-`;
-
-export const WrapperAd = styled.div`
-	@media (max-width: 768px) {
-		margin-bottom: 20px;
-	}
-`;
-
-
-export const AsideDiv = styled.div`
-	width: 100%;
-	height: 50%;
-	@media (max-width: 768px) {
-		height: 480px;
-	}
-	div {
-		.last {
-			margin-bottom: 60px;
-		}
-	}
+	top: 15px;
 `;

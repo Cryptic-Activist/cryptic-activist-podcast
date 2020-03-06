@@ -51,9 +51,9 @@ const Podcasts = (props) => {
 
   if (podcasts.loading) {
     helmet = (
-      <>
-        <Helmet title="Loading..." media="Podcasts" />
-      </>
+      <Head>
+        <title>Loading...</title>
+      </Head>
     );
   } else if (podcasts.fetched) {
     helmet = (

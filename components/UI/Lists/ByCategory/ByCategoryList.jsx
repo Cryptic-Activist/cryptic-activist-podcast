@@ -1,52 +1,71 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
 import {
-  Card,
+  Wrapper,
   Cover,
+  InfoDiv,
+  Ul,
+  UploadedOn,
+  Category,
   Title,
 } from '../../../../styles/Components/UI/Lists/ByCategoryList/by-category-list.styled-components';
 
-import Formatter from '../../../../utils/DateFormatter';
-
-const ByCategoryList = (props) => {
+const PodcastsList = (props) => {
   const {
+    slug,
+    cover,
+    category,
     title,
-    imgSrc,
-    slug
+    date,
   } = props;
 
   return (
-    <Link href={`/${slug}`}>
-      <Card
-        className="col-lg-4 col-md-6 col-sm-6 col-12"
-        style={{ border: 'none' }}
-      >
-        <Cover
-          src={imgSrc}
-          alt="React.js"
-          width="100%"
-          style={{
-            backgroundImage: `url(${imgSrc})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-          }}
-        />
-        <Title>{title}</Title>
-      </Card>
-    </Link>
+    <>
+      <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+        <Link href={`/${slug}`}>
+          <Wrapper>
+            <Ul>
+              <li
+                style={{
+                  display: 'inline-block',
+                  marginRight: '8px',
+                }}
+              >
+                <Cover src={cover} />
+              </li>
+              <li
+                style={{
+                  display: 'inline-block',
+                }}
+              >
+                <InfoDiv>
+                  <UploadedOn>
+                    <b style={{ color: '#333' }}>{date}</b>
+                  </UploadedOn>
+                  <Title>
+                    {title}
+                  </Title>
+                  <Category>
+                    {category}
+                  </Category>
+                </InfoDiv>
+              </li>
+            </Ul>
+          </Wrapper>
+        </Link>
+      </div>
+    </>
   );
 }
 
-ByCategoryList.propTypes = {
-  type: PropTypes.string.isRequired,
-  imgSrc: PropTypes.string.isRequired,
+PodcastsList.propTypes = {
   title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  publishedOn: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  cover: PropTypes.string.isRequired,
 };
 
-export default ByCategoryList;
+export default PodcastsList;

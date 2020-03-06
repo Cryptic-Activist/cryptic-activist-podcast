@@ -96,11 +96,12 @@ const AudioPlayer = ({ audioFileUrl }) => {
     },
   }));
 
+  console.log('audio:', audioFileUrl)
 
   return (
     <>
       <ThemeProvider theme={muiTheme}>
-        <AudioPlayerWrapper
+        {/* <AudioPlayerWrapper
           elevation={0}
           width="100%"
           variation="default"
@@ -111,7 +112,7 @@ const AudioPlayer = ({ audioFileUrl }) => {
           useStyles={useStyles}
           src={audioFileUrl}
           debug
-        />
+        /> */}
       </ThemeProvider>
     </>
   );

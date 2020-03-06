@@ -43,7 +43,7 @@ import {
   LoadingAllContent,
 } from '../../../styles/Pages/Podcast/podcast.styled-components';
 
-// import SubNavBar from '../../components/UI/navbar/SubNavBar';
+import SubNavBar from '../../../components/UI/Navbar/SubNavBar';
 
 import DateFormatter from '../../../utils/DateFormatter';
 
@@ -60,13 +60,11 @@ let count = 0;
 
 const Podcast = (props) => {
   const {
-    relatedPodcast,
     podcast,
     pathname,
   } = props;
 
   const dateFormatter = new DateFormatter();
-
 
   // useEffect(() => {
   //   const { match } = props;
@@ -74,61 +72,13 @@ const Podcast = (props) => {
   //   // dispatch(PodcastActions.getPodcast(fullSlug));
   // }, []);
 
-  let helmet;
-  let allContentPodcast;
-  let podcastUpdated;
-  let podcastRelatedPodcast;
-
-
-  // if (!_.isEmpty(relatedPodcast.data)) {
-  //   podcastRelatedPodcast = (
-  //     <RelatedPodcastLabel>
-  //     Related Blog Posts
-  //       <br />
-  //       <RelatedPodcastList>
-  //         {
-  //        relatedPodcast.data.map((related) => (
-  //          <RelatedPodcastLi
-  //            key={related.id}
-  //          >
-                // <Link href={`/podcast/${podcast.podcast.data.slug}`}>
-                //   <RelatedPodcast>
-                //     <img
-                //       src={related.cover.url}
-                //       alt={related.cover.name}
-                //       style={{
-                //         borderRadius: '5px',
-                //       }}
-                //     />
-                //     <br />
-                //     <RelatedPodcastH6>
-                //       {related.title}
-                //     </RelatedPodcastH6>
-                //   </RelatedPodcast>
-                // </Link>
-  //          </RelatedPodcastLi>
-  //        ))
-  //      }
-  //       </RelatedPodcastList>
-  //     </RelatedPodcastLabel>
-  //   );
-  // }
-
-  // console.log('podcast.podcast.fetched')
-
   let content;
   let subMenu;
-  let audio;
-  let googleExternalPodcast;
-  let spotifyExternalPodcast;
-  let itunesExternalPodcast;
-
-  console.log('podcast:', podcast)
 
   if (podcast.podcast.loading) {
-    // subMenu = (
-    //   <SubNavBar media="Podcast" category="" title="" />
-    // );
+    subMenu = (
+      <SubNavBar media="Podcast" category="" title="" />
+    );
     content = (
       <>
         <LoadingAllContent>
@@ -146,22 +96,12 @@ const Podcast = (props) => {
       }
     }
 
-    // if (!_.isEmpty(podcast.podcast.data.audioFile)) {
-    //   audio = (
-    //     <>
-    //       <AudioPlayer
-    //         audioFileUrl={podcast.podcast.data.audioFile.url}
-    //       />
-    //     </>
-    //   );
-    // } else {
-    //   audio = (
-    //     <>
-    //     </>
-    //   );
-    // }
 
-    helmet = (
+
+    subMenu = (
+      <SubNavBar media="Podcast" category={podcast.podcast.data.category} title={podcast.podcast.data.title} />
+    );
+    content = (
       <>
         <Head>
           <title>{`${podcast.podcast.data.title} - Podcast | Cryptic Activist`}</title>
@@ -203,13 +143,6 @@ const Podcast = (props) => {
           <meta name="twitter:height" content="200" />
           <meta name="twitter:player:stream" content={podcast.podcast.data.audioFile.url} />
         </Head>
-      </>
-    );
-    // subMenu = (
-    //   <SubNavBar media="Podcast" category={podcast.podcast.data.category} title={podcast.podcast.data.title} />
-    // );
-    content = (
-      <>
         <div className="col-lg-4 col-md-4 col-sm-12 col-12">
           <Aside>
             <Cover
@@ -238,18 +171,15 @@ const Podcast = (props) => {
               </UploadedOn>
             )}
             <Title>{podcast.podcast.data.title}</Title>
-            <Link href={`/podcasts/category/${slugify(podcast.podcast.data.category.toLowerCase())}`}>
+            <Link href={`/category/${slugify(podcast.podcast.data.category.toLowerCase())}`}>
               <Category>
                 {podcast.podcast.data.category}
               </Category>
             </Link>
             {(!_.isEmpty(podcast.podcast.data.audioFile)) && (
-              // <AudioPlayer
-              //   audioFileUrl={podcast.podcast.data.audioFile.url}
-              // />
-              <>
-
-              </>
+              <AudioPlayer
+                audioFileUrl={podcast.podcast.data.audioFile.url}
+              />
             )}
             <Description
               dangerouslySetInnerHTML={{ __html: podcast.podcast.data.description }}
@@ -284,17 +214,15 @@ const Podcast = (props) => {
             <TagsUl>
             {
               podcast.podcast.data.tags.map((tag) => (
-
                 <TagLi
                   key={tag.id}
                 >
-                  <Link href={`/podcasts/tags/${slugify(tag.toLowerCase())}`}>
+                  <Link href={`/tag/${slugify(tag.toLowerCase())}`}>
                     <Tag>
                       {tag}
                     </Tag>
                   </Link>
                 </TagLi>
-
               ))
             }
             </TagsUl>
@@ -303,17 +231,17 @@ const Podcast = (props) => {
                 More Episodes
               </MoreEpisodes>
             </Link>
-            {/* {(!_.isEmpty(relatedPodcast.data)) && (
+            {(!_.isEmpty(podcast.relatedPodcasts.data)) && (
               <RelatedPodcastLabel>
                 Related Blog Posts
                 <br />
                 <RelatedPodcastList>
                   {
-                relatedPodcast.data.map((related) => (
+                podcast.relatedPodcasts.data.map((related) => (
                   <RelatedPodcastLi
                     key={related.id}
                   >
-                        <Link href={`/podcast/${podcast.podcast.data.slug}`}>
+                        <Link href={`/${podcast.podcast.data.slug}`}>
                           <RelatedPodcast>
                             <img
                               src={related.cover.url}
@@ -333,7 +261,7 @@ const Podcast = (props) => {
               }
                 </RelatedPodcastList>
               </RelatedPodcastLabel>
-            )} */}
+            )}
           </Wrapper>
         </div>
       </>
@@ -343,7 +271,7 @@ const Podcast = (props) => {
   return (
     <>
       <Layout>
-        {/* {subMenu} */}
+        {subMenu}
         <div className="container">
           <div className="row">
             {content}

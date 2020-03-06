@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import 'isomorphic-fetch';
 
 import {
-  getPostsByTag,
-} from '../../store/actions/blog/postsByTag';
+  getPodcastsByTag,
+} from '../../store/actions/podcasts/podcastsByTag';
 
 import Tag from '../../components/Pages/Tag/ByTags';
 
@@ -14,7 +14,7 @@ class TagIndex extends Component {
     const { store, isServer, asPath } = props.ctx;
     const slug = asPath.substring(5, asPath.length);
     console.log('slug tag asPath:', slug)
-    store.dispatch(getPostsByTag(slug));
+    store.dispatch(getPodcastsByTag(slug));
     return { isServer, asPath };
   }
 

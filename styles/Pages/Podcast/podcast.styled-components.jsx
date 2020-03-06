@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { opacity, rotate } from '../../Animations/animations';
 
 export const Wrapper = styled.div`
-	margin: 20px auto 0px auto;
+	margin: 20px auto 16px auto;
 	position: sticky;
 	top: 30px;
 `;
@@ -151,6 +151,7 @@ export const Category = styled.a`
 	padding: 6px 13px;
 	background: #ffcd2b;
 	border-radius: 16px;
+	cursor: pointer;
 	color: #000;
 	display: table;
 	transform: translateY(0px);
@@ -273,6 +274,7 @@ export const MoreEpisodes = styled.a`
 	color: #000;
 	margin: 15px 0;
 	display: block;
+	cursor: pointer;
 	&:hover {
 		text-decoration: none;
 		color: #000;
@@ -313,6 +315,7 @@ export const Tag = styled.a`
 	padding: 6px 13px;
 	font-size: 16px;
 	background: #eaeaea;
+	cursor: pointer;
 	border-radius: 16px;
 	color: #333;
 	display: inline;
@@ -363,6 +366,7 @@ font-size: 14px;
 
 export const RelatedPodcast = styled.a`
 	text-decoration: none;
+	cursor: pointer;
 	 &:hover {
 		 text-decoration: none;
 	 }
