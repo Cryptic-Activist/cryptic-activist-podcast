@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import Head from 'next/head';
 
 import {
   FaSpinner,
@@ -42,6 +43,8 @@ const PodcastsByTag = (props) => {
   const dateFormatter = new DateFormatter()
 
   let allPodcasts;
+  let helmet;
+
   if (podcasts.loading) {
     console.log('fetching data on podcast category...');
     allPodcasts = (
@@ -53,6 +56,32 @@ const PodcastsByTag = (props) => {
     );
   } else if (podcasts.fetched) {
     if (!_.isEmpty(podcasts.data)) {
+      helmet = (
+        <>
+          <Head>
+            <title>Home | Cryptic Activist Podcast</title>
+            <meta
+              name="description"
+              content="Meta Description"
+            />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:locale:alternate" content="en_CA" />
+            <meta property="og:locale:alternate" content="es_GB" />
+            <meta property="og:site_name" content="Cryptic Activist" />
+            <meta property="og:description" content="Meta Description" />
+            <meta property="og:title" content="Home - Podcast | Cryptic Activist" />
+            {/* <meta property="og:url" content={`https://crypticactivist.com${location.pathname}`} /> */}
+  
+            <meta name="twitter:site" content="Cryptic Activist" />
+            <meta name="twitter:title" content="Home - Podcast | Cryptic Activist" />
+            <meta name="twitter:description" content="Meta Description" />
+  
+            <meta property="og:type" content="article" />
+            <meta name="twitter:card" content="music.song" />
+          </Head>
+        </>
+      );
+
       allPodcasts = (
         <>
           <div
@@ -68,7 +97,7 @@ const PodcastsByTag = (props) => {
                   key={podcast.id}
                   category={podcast.category}
                   title={podcast.title}
-                  date={podcast.uploadedOn}
+                  date={dateFormatter.formatDateFullDate(podcast.uploadedOn)}
                   slug={podcast.slug}
                   cover={podcast.coverUrl}
                   liID={`p-${podcast.id}`}
@@ -104,6 +133,7 @@ const PodcastsByTag = (props) => {
   }
   return (
     <>
+      {helmet}
       <Layout>
         <SubNavBar media="Podcasts" category="" title="" />
         <div className="container">

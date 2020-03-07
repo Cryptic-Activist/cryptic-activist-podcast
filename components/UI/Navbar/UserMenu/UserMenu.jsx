@@ -55,7 +55,7 @@ const UserMenu = (props) => {
         <hr />
         <MenuOpitionUl>
           <MenuOpitionLi>
-            {isAdmin ? (
+            {isAdmin && (
               <Link href="/admin">
                 <LinkTo
                   onClick={handleCloseOnClick}
@@ -63,23 +63,7 @@ const UserMenu = (props) => {
                   Admin
                 </LinkTo>
               </Link>
-            ) : (
-              <Link href="/contributor">
-                <LinkTo
-                  onClick={handleCloseOnClick}
-                >
-                  Contributor
-                </LinkTo>
-              </Link>
             )}
-          </MenuOpitionLi>
-          <MenuOpitionLi>
-            <LinkTo
-              to="/my-courses"
-              onClick={handleCloseOnClick}
-            >
-              My Courses
-            </LinkTo>
           </MenuOpitionLi>
           <MenuOpitionLi>
             <LinkTo

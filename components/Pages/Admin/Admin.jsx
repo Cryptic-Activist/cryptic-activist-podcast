@@ -7,7 +7,7 @@ import {
   FaTimes,
 } from 'react-icons/fa';
 
-import PostsContent from '../../UI/Lists/Contributor/Posts'
+import PodcastsContent from '../../UI/Lists/Contributor/Podcasts'
 import CommentsList from '../../UI/Lists/Contributor/CommentsList';
 
 import BitcoinDoddle from '../../../assets/img/no-content-img.png'
@@ -19,7 +19,7 @@ import {
   CloseButton,
   NoList,
   PublishA,
-} from '../../../styles/Pages/Contributor/contributor.styled-components';
+} from '../../../styles/Pages/Admin/admin.styled-components';
 
 const Index = () => {
 
@@ -52,12 +52,12 @@ const Index = () => {
                 <Buttons style={{
                   borderBottom: '1px solid #000',
                   background: 'rgba(0, 0, 0, 0.07)',
-                }}>Posts</Buttons>
+                }}>Podcasts</Buttons>
               ) : (
                 <Buttons
                   onClick={handlePosts}
                 >
-                  Posts
+                  Podcasts
                 </Buttons>
               )}
               {commentsState? (
@@ -72,7 +72,7 @@ const Index = () => {
                   Comments
                 </Buttons>
               )}
-              <Link href="/contributor/publish">
+              <Link href="/admin/publish">
                 <PublishA>
                   Publish
                 </PublishA>
@@ -87,7 +87,7 @@ const Index = () => {
               )}
 
               {postsState && (
-                <PostsContent />
+                <PodcastsContent />
               )}
               {commentsState && (
                 <CommentsList />

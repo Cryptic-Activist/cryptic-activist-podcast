@@ -41,6 +41,7 @@ export const InfoDiv = styled.div`
 
 export const Ul = styled.ul`
 	height: 100%;
+	padding-left: 0;
 `;
 
 export const Title = styled.h4`

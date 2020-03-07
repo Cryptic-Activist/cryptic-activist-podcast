@@ -5,7 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import {
   FaSpinner,
 } from 'react-icons/fa';
-import List from './PostsList';
+import List from './PodcastsList';
 
 import BitcoinDoddle from '../../../../assets/img/no-content-img.png';
 
@@ -15,19 +15,21 @@ import {
   NoContentImg,
   NoContentP,
   InfinitePostList,
+  Scroller,
 } from '../../../../styles/Components/UI/Lists/Contributor/posts.styled-components';
 
 
-const BlogContent = () => {
+const PodcastsContent = () => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
   const [found, setFound] = useState(false);
 
+  console.log('posts list:', posts)
 
   const getFirstPosts = async () => {
     const response = await fetch(
-      'http://localhost:5000/blog/',
+      'http://localhost:5000/podcasts/',
       {
         method: 'GET',
         mode: 'cors',
@@ -45,7 +47,7 @@ const BlogContent = () => {
   const getMorePosts = async () => {
     setPage(page + 1);
     const tempPage = page + 1;
-    const response = await fetch(`http://localhost:5000/blog/?page=${tempPage}`, {
+    const response = await fetch(`http://localhost:5000/podcasts/?page=${tempPage}`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',
@@ -131,7 +133,7 @@ const BlogContent = () => {
                 type={post.type}
                 category={post.category}
                 title={post.title}
-                date={post.publishedOn}
+                date={post.uploadedOn}
                 content={post.content}
                 slug={post.slug}
                 liID={`b-${post.id}`}
@@ -146,10 +148,10 @@ const BlogContent = () => {
 
 
   return (
-    <div>
+    <Scroller>
       {list}
-    </div>
+    </Scroller>
   );
 }
 
-export default BlogContent;
+export default PodcastsContent;

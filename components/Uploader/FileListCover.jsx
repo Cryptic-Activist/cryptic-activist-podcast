@@ -4,110 +4,70 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { MdCheckCircle, MdError, MdLink } from 'react-icons/md';
 
 import {
-  ContainerCover,
+  Container,
   FileInfo,
-  PreviewCover,
-} from '../../styles/Components/Uploader/file-list-cover.styled-components';
+  Preview,
+} from '../../styles/Pages/Admin/Publish/publish.styled-components';
 
-const FileList = ({ files, onDelete }) => (
-  <ContainerCover>
-    <li key={files.id}>
+const FileList = ({ file, onDelete }) => (
+  <Container>
+    <li key={file.id}>
       <FileInfo>
-        <PreviewCover src={files.preview} />
+        <Preview src={file.preview} />
         <br />
         <div style={{
-          display: 'block',
           position: 'absolute',
-          // left: '45%',
-          // width: '100%',
+          display: 'table',
+          margin: '0 auto',
+          background: '#fff',
+          left: '125px',
+          top: '210px',
+          padding: '2px 5px',
           borderRadius: '5px',
-          textAlign: 'center',
-          height: '28px',
-          top: '240px',
         }}
         >
-          {/* <strong>{files.name}</strong> */}
+          {/* <strong>{file.name}</strong> */}
           <span>
-            {files.readableSize}
+            {file.readableSize}
             {' '}
-            {!!files.url && (
-            <button type="button" onClick={() => onDelete(files.id)}>
+            {!!file.url && (
+              <button type="button" onClick={() => onDelete(file.id)}>
                   Delete
-            </button>
+              </button>
             )}
           </span>
         </div>
       </FileInfo>
       <div style={{
-        display: 'block',
-        position: 'absolute',
-        left: '45%',
-        borderRadius: '5px',
-        textAlign: 'center',
-        height: '28px',
-        // width: '100vw',
-        top: '200px',
-        zIndex: '9999',
+        position: 'absolute', display: 'table', margin: '0 auto', background: '#fff', left: '146px', top: '177px', padding: '2px 5px', borderRadius: '5px',
       }}
       >
-        {!files.uploaded && !files.error && (
-        <CircularProgressbar
-          styles={{
-            root: { width: 24 },
-            path: { stroke: '#0058e4' },
-          }}
-          strokeWidth={10}
-          percentage={files.progress}
-        />
+        {!file.uploaded && !file.error && (
+          <CircularProgressbar
+            styles={{
+              root: { width: 24 },
+              path: { stroke: '#0058e4' },
+            }}
+            strokeWidth={10}
+            percentage={file.progress}
+          />
         )}
 
-        {files.url && (
-        <a
-          href={files.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: 'block',
-            position: 'absolute',
-            borderRadius: '5px',
-            textAlign: 'center',
-            height: '28px',
-            zIndex: '9999',
-            backgroundColor: '#fff',
-            padding: '2px 0px 0px 7px',
-          }}
-        >
-          <MdLink style={{ marginRight: 8 }} size={24} color="#222" />
-        </a>
+        {file.url && (
+          <a
+            href={file.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MdLink style={{ marginRight: 8 }} size={24} color="#222" />
+          </a>
         )}
 
-        {files.uploaded && (
-        <MdCheckCircle
-          size={24}
-          color="#47d15c"
-          style={{
-            backgroundColor: '#fff',
-            margin: '0 0 0 56px',
-            display: 'block',
-            position: 'absolute',
-            height: '29px',
-            width: '34px',
-            borderRadius: '5px',
-          }}
-        />
-        )}
-        {files.error && (
-        <MdError
-          size={24}
-          color="#e34444"
-          style={{
-            backgroundColor: '#fff', margin: '0 0 0 56px', height: '29px', width: '34px', borderRadius: '5px',
-          }}
-        />
-        )}
+        {file.uploaded && <MdCheckCircle size={24} color="#47d15c" />}
+        {file.error && <MdError size={24} color="#e34444" />}
       </div>
     </li>
-  </ContainerCover>
+  </Container>
 );
 
 export default FileList;

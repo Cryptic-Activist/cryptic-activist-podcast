@@ -17,7 +17,7 @@ import {
   GoTo,
 } from '../../../../styles/Components/UI/Lists/Contributor/posts.styled-components';
 
-import DateFormatter from '../../../../utils/DateFormatter'
+import DateFormatter from '../../../../utils/DateFormatter';
 
 const List = (props) => {
   const {
@@ -28,6 +28,7 @@ const List = (props) => {
     slug,
     liID,
   } = props;
+  console.log('date podcasts:', props)
 
   const formatter = new DateFormatter()
 
@@ -104,7 +105,7 @@ const List = (props) => {
                 lineHeight: '24px',
               }}
             >
-              {`${type} > ${category}`}
+              {`Podcast > ${category}`}
 
             </b>
             <br />

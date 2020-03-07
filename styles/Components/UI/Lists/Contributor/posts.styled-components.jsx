@@ -95,6 +95,24 @@ export const ToggleButton = styled.button`
   }
 `;
 
+export const Scroller = styled.p`
+  height: 400px;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #ffcd2b;
+    border: 1px solid #000;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: #ecbe29;
+  }
+`;
+
 export const Expand = styled.a`
   padding: 20px;
   float: right;
