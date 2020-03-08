@@ -7,3 +7,23 @@ export function getPodcast(slug) {
     },
   };
 }
+
+export function getCommentsPodcast(podcastId) {
+  return {
+    type: 'REQUEST_GET_ALL_COMMENTS_PODCAST',
+    payload: {
+      podcastId,
+    },
+  };
+}
+
+export function postComment(userId, podcastId, comment) {
+  return {
+    type: 'REQUEST_POST_COMMENT',
+    payload: {
+      userId,
+      podcastId,
+      comment,
+    },
+  };
+}

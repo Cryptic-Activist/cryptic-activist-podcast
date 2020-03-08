@@ -96,7 +96,7 @@ const AudioPlayer = ({ audioFileUrl }) => {
     },
   }));
 
-  console.log('audio:', audioFileUrl)
+  // console.log('audio:', audioFileUrl)
 
   return (
     <>

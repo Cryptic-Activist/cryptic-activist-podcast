@@ -34,7 +34,7 @@ const SideDrawer = (props) => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  console.log('userUser:', user.fetched)
+  // console.log('userUser:', user.fetched)
 
   const handleLogout = async () => {
     dispatch(UserActions.logoutUser());

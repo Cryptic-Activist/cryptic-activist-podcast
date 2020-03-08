@@ -13,6 +13,12 @@ const initialState = {
     fetched: false,
     error: false,
   },
+  comments: {
+    data: [],
+    loading: false,
+    fetched: false,
+    error: false,
+  }
 };
 
 export default function podcast(state = initialState, action) {
@@ -61,6 +67,52 @@ export default function podcast(state = initialState, action) {
           error: { $set: true },
         },
       });
+      case 'REQUEST_GET_ALL_COMMENTS_PODCAST':
+        return update(state, {
+          comments: {
+            loading: { $set: true },
+          },
+        });
+      case 'SUCCESS_GET_ALL_COMMENTS_PODCAST':
+        return update(state, {
+          comments: {
+            data: { $set: action.payload.data },
+            loading: { $set: false },
+            fetched: { $set: true },
+            error: { $set: false },
+          },
+        });
+      case 'FAILURE_GET_ALL_COMMENTS_PODCAST':
+        return update(state, {
+          comments: {
+            fetched: { $set: true },
+            error: { $set: true },
+          },
+        });
+      case 'REQUEST_POST_COMMENT':
+        return update(state, {
+          comments: {
+            // loading: { $set: true },
+            isSubmitted: { $set: false },
+          },
+        });
+      case 'SUCCESS_POST_COMMENT':
+        return update(state, {
+          comments: {
+            data: { $push: [action.payload.data] },
+            // loading: { $set: false },
+            fetched: { $set: true },
+            error: { $set: false },
+            isSubmitted: { $set: true },
+          },
+        });
+      case 'FAILURE_POST_COMMENT':
+        return update(state, {
+          comments: {
+            fetched: { $set: true },
+            error: { $set: true },
+          },
+        });
     default:
       return state;
   }

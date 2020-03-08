@@ -42,7 +42,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('navbar user loading:');
+    // console.log('navbar user loading:');
     dispatch(UserActions.loginUser());
   }, []);
 

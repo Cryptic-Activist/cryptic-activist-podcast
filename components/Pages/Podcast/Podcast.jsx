@@ -1,24 +1,27 @@
 /* eslint react/prop-types: 0 */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-
-import Layout from '../../../components/Layout';
-
 import Link from 'next/link';
 import Head from 'next/head';
-import _ from 'lodash';
-import slugify from 'slugify';
 
 import {
   FaSpinner,
 } from 'react-icons/fa';
 
-import ShareButtons from '../../../components/UI/ShareButtons/ShareButtons';
-import AudioPlayer from '../../../components/UI/Player/AudioPlayer';
+import _ from 'lodash';
+import slugify from 'slugify';
 
 import ListenOnGooglePodcast from '../../../assets/img/listen-on-google-podcasts.svg';
 import ListenOnSpotifyPodcast from '../../../assets/img/listen-on-spotify.svg';
 import ListenOnITunesPodcast from '../../../assets/img/listen-on-apple.svg';
+
+import Layout from '../../../components/Layout';
+import SubNavBar from '../../../components/UI/Navbar/SubNavBar';
+import ShareButtons from '../../../components/UI/ShareButtons/ShareButtons';
+import AudioPlayer from '../../../components/UI/Player/AudioPlayer';
+import Comments from './Comments';
+
+import DateFormatter from '../../../utils/DateFormatter';
 
 import {
   Wrapper,
@@ -42,10 +45,6 @@ import {
   RelatedPodcastH6,
   LoadingAllContent,
 } from '../../../styles/Pages/Podcast/podcast.styled-components';
-
-import SubNavBar from '../../../components/UI/Navbar/SubNavBar';
-
-import DateFormatter from '../../../utils/DateFormatter';
 
 const mapStateToProps = (state) => {
   const {
@@ -262,6 +261,9 @@ const Podcast = (props) => {
                 </RelatedPodcastList>
               </RelatedPodcastLabel>
             )}
+            <Comments
+              podcastId={podcast.podcast.data._id}
+            />
           </Wrapper>
         </div>
       </>
