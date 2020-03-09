@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import 'isomorphic-fetch';
 
-import Admin from '../../components/Pages/Admin/Admin';
+import Register from '../../components/Pages/Admin/Register/Register';
 
-class AdminIndex extends Component {
+class AdminRegister extends Component {
   static async getInitialProps(props) {
     const { store, isServer } = props.ctx;
 
@@ -12,9 +12,9 @@ class AdminIndex extends Component {
 
   render() {
     return (
-      <Admin />
+      <Register />
     );
   }
 }
 
-export default AdminIndex;
+export default AdminRegister;

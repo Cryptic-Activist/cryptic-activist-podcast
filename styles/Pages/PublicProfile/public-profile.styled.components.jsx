@@ -5,6 +5,7 @@ import { rotate } from '../../Animations/animations';
 export const SocialMediaUser = styled.ul`
   margin: 5px auto;
   display: table;
+  padding-left: 0;
   li {
     display: inline-block;
     text-align: center;
@@ -28,6 +29,7 @@ export const Wrapper = styled.ul`
   width: 70%;
   display: table;
   margin: 20px auto 40px auto;
+  padding-left: 0;
   .user-cover {
     transform: translateY(-40px);
     @media (max-width: 768px) {

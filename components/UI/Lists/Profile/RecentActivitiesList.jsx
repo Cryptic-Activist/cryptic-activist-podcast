@@ -27,24 +27,22 @@ const RecentActivitiesList = (props) => {
     <div
       className="col-lg-4 col-md-6 col-sm-6 col-12"
     >
-      <Link href={`/${slug}`}>
-        <RecentActivityWrapper>
-          <RecentActivitiesCover
-            style={{
-              backgroundImage: `url(${coverUrl})`,
-            }}
-          />
-          <RecentActivitiesAuthorPicture
-            src={authorPicture}
-          />
-          <RecentActivityTitle>
-            {title}
-          </RecentActivityTitle>
-          <RecentActivityPublishedOn>
-            {dateFormatter.formatDateFullDate(publishedOn)}
-          </RecentActivityPublishedOn>
-        </RecentActivityWrapper>
-      </Link>
+      <RecentActivityWrapper href={`https://blog.crypticactivist.com/${slug}`} target="_blank">
+        <RecentActivitiesCover
+          style={{
+            backgroundImage: `url(${coverUrl})`,
+          }}
+        />
+        <RecentActivitiesAuthorPicture
+          src={authorPicture}
+        />
+        <RecentActivityTitle>
+          {title}
+        </RecentActivityTitle>
+        <RecentActivityPublishedOn>
+          {dateFormatter.formatDateFullDate(publishedOn)}
+        </RecentActivityPublishedOn>
+      </RecentActivityWrapper>
     </div>
   );
 };

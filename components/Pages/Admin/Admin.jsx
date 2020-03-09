@@ -7,7 +7,7 @@ import {
   FaTimes,
 } from 'react-icons/fa';
 
-import PodcastsContent from '../../UI/Lists/Contributor/Podcasts'
+import PodcastsContent from '../../UI/Lists/Contributor/Podcasts';
 import CommentsList from '../../UI/Lists/Contributor/CommentsList';
 
 import BitcoinDoddle from '../../../assets/img/no-content-img.png'

@@ -150,7 +150,7 @@ const Podcast = (props) => {
             />
             <ShareButtonsDiv>
               <ShareButtons
-                path={`https://crypticactivist.com${pathname}`}
+                path={`https://podcast.crypticactivist.com${pathname}`}
                 size={30}
               />
             </ShareButtonsDiv>

@@ -82,9 +82,9 @@ const PodcastsContent = () => {
       setFound(true);
     }
     setPosts(postsList);
-    setTimeout(() => {
-      getMorePosts();
-    }, 2000);
+    // setTimeout(() => {
+    //   getMorePosts();
+    // }, 2000);
   }
 
   useEffect(() => {

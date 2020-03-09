@@ -3,7 +3,7 @@ import 'isomorphic-fetch';
 
 import Admin from '../../components/Pages/Admin/Admin';
 
-class AdminIndex extends Component {
+class AdminLogin extends Component {
   static async getInitialProps(props) {
     const { store, isServer } = props.ctx;
 
@@ -17,4 +17,4 @@ class AdminIndex extends Component {
   }
 }
 
-export default AdminIndex;
+export default AdminLogin;
