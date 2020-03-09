@@ -39,10 +39,12 @@ async function loginSetUserApi(id) {
 export default function* asyncLoginAdminUserApi(action) {
   try {
     const response = yield call(loginAdminUserApi, action.payload.username, action.payload.password);
+
     yield call(loginSetUserApi, response.id);
 
     yield put({ type: 'SUCCESS_REGISTER_ADMIN_USER', payload: { data: response } });
   } catch (err) {
+    console.log('err:', err)
     yield put({ type: 'FAILURE_REGISTER_ADMIN_USER' });
   }
 }

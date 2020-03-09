@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'isomorphic-fetch';
 
-import Admin from '../../components/Pages/Admin/Admin';
+import Login from '../../components/Pages/Admin/Login/Login';
 
 class AdminLogin extends Component {
   static async getInitialProps(props) {
@@ -12,7 +12,7 @@ class AdminLogin extends Component {
 
   render() {
     return (
-      <Admin />
+      <Login />
     );
   }
 }
