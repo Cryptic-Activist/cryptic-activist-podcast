@@ -3,7 +3,6 @@ import {
   all,
 } from 'redux-saga/effects';
 
-
 import asyncLoginUserApi from './user/loginUser';
 import asyncRegisterAdminUserApi from './user/registerAdminUser';
 import asyncLoginAdminUserApi from './user/loginAdminUser';
@@ -16,6 +15,7 @@ import asyncRefreshUserData from './user/refreshUserData';
 import asyncUpdateProfileUserInfo from './user/updateProfileUserInfo';
 import asyncGetPodcasts from './podcasts/getPodcasts';
 import asyncGetPodcast from './podcasts/getPodcast';
+import asyncGetPodcastAudio from './podcasts/getPodcastAudio';
 import asyncGetRelatedPodcastsApi from './podcasts/getRelatedPodcast';
 import asyncGetCommentsPodcastApi from './podcasts/getCommentsPodcast';
 import asyncPostComment from './podcasts/postComment';
@@ -37,6 +37,7 @@ export default function* root() {
     takeLatest('REQUEST_UPDATE_USER_INFO', asyncUpdateProfileUserInfo),
     takeLatest('REQUEST_ALL_PODCASTS', asyncGetPodcasts),
     takeLatest('REQUEST_PODCAST_BY_SLUG', asyncGetPodcast),
+    takeLatest('REQUEST_PODCAST_AUDIO_BY_SLUG', asyncGetPodcastAudio),
     takeLatest('REQUEST_RELATED_PODCASTS', asyncGetRelatedPodcastsApi),
     takeLatest('REQUEST_POST_COMMENT', asyncPostComment),
     takeLatest('REQUEST_GET_ALL_COMMENTS_PODCAST', asyncGetCommentsPodcastApi),

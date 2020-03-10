@@ -45,6 +45,22 @@ export default function podcast(state = initialState, action) {
           error: { $set: true },
         },
       });
+    case 'REQUEST_PODCAST_AUDIO_BY_SLUG':
+      return update(state, {
+        podcast: {},
+      });
+    case 'SUCCESS_PODCAST_AUDIO_BY_SLUG':
+      return update(state, {
+        podcast: {
+          data: { 
+            audioFile: { $set: action.payload.data },
+           },
+        },
+      });
+    case 'FAILURE_PODCAST_AUDIO_BY_SLUG':
+      return update(state, {
+        podcast: {},
+      });
     case 'REQUEST_RELATED_PODCASTS':
       return update(state, {
         relatedPodcasts: {

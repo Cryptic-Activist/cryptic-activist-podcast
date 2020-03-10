@@ -8,6 +8,15 @@ export function getPodcast(slug) {
   };
 }
 
+export function getPodcastAudio(slug) {
+  return {
+    type: 'REQUEST_PODCAST_AUDIO_BY_SLUG',
+    payload: {
+      slug,
+    },
+  };
+}
+
 export function getCommentsPodcast(podcastId) {
   return {
     type: 'REQUEST_GET_ALL_COMMENTS_PODCAST',

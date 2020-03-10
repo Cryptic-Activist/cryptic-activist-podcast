@@ -1,8 +1,9 @@
 /* eslint react/prop-types: 0 */
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import Link from 'next/link';
 import Head from 'next/head';
+import Router from 'next/router';
 
 import {
   FaSpinner,
@@ -22,6 +23,10 @@ import AudioPlayer from '../../../components/UI/Player/AudioPlayer';
 import Comments from './Comments';
 
 import DateFormatter from '../../../utils/DateFormatter';
+
+import {
+  getPodcastAudio,
+} from '../../../store/actions/podcasts/podcast';
 
 import {
   Wrapper,
@@ -63,13 +68,18 @@ const Podcast = (props) => {
     pathname,
   } = props;
 
+  const dispatch = useDispatch();
+
   const dateFormatter = new DateFormatter();
 
-  // useEffect(() => {
-  //   const { match } = props;
-  //   const fullSlug = match.url.slice(9, match.url.length);
-  //   // dispatch(PodcastActions.getPodcast(fullSlug));
-  // }, []);
+  useEffect(() => {
+    const {
+      router
+    } = Router;
+    console.log('router:', router.asPath);
+    const fullSlug = router.asPath.substring(1, router.asPath.length);
+    dispatch(getPodcastAudio(fullSlug));
+  }, []);
 
   let content;
   let subMenu;
@@ -132,15 +142,15 @@ const Podcast = (props) => {
           <meta property="og:image:alt" content={podcast.podcast.data.coverAlt} />
           <meta property="og:audio:type" content="audio/mpeg" />
           <meta property="og:audio:type" content="audio/mp3" />
-          <meta property="og:audio" content={podcast.podcast.data.audioFile.url} />
-          <meta property="og:audio:secure_url" content={podcast.podcast.data.audioFile.url} />
+          {/* <meta property="og:audio" content={podcast.podcast.data.audioFile.url} /> */}
+          {/* <meta property="og:audio:secure_url" content={podcast.podcast.data.audioFile.url} /> */}
 
           <meta name="twitter:card" content="music.song" />
           <meta name="twitter:image:alt" content="Podcast cover" />
-          <meta name="twitter:player" content={podcast.podcast.data.audioFile.url} />
+          {/* <meta name="twitter:player" content={podcast.podcast.data.audioFile.url} /> */}
           <meta name="twitter:width" content="100" />
           <meta name="twitter:height" content="200" />
-          <meta name="twitter:player:stream" content={podcast.podcast.data.audioFile.url} />
+          {/* <meta name="twitter:player:stream" content={podcast.podcast.data.audioFile.url} /> */}
         </Head>
         <div className="col-lg-4 col-md-4 col-sm-12 col-12">
           <Aside>
@@ -175,18 +185,24 @@ const Podcast = (props) => {
                 {podcast.podcast.data.category}
               </Category>
             </Link>
-            {(!_.isEmpty(podcast.podcast.data.audioFile)) && (
+            {/* {(!_.isEmpty(podcast.podcast.data.audioFile)) && (
               <AudioPlayer
                 audioFileUrl={podcast.podcast.data.audioFile.url}
               />
-            )}
+            )} */}
             <Description
               dangerouslySetInnerHTML={{ __html: podcast.podcast.data.description }}
             />
-            <ExternalEpisodeLabel>
-              Also available on
-            </ExternalEpisodeLabel>
-            <br />
+            {((podcast.podcast.data.googleEpisodeUrl !== '') ||
+            (podcast.podcast.data.spotifyEpisodeUrl !== '') || 
+            (podcast.podcast.data.itunesEpisodeUrl !== '')) && (
+              <>
+                <ExternalEpisodeLabel>
+                  Also available on
+                </ExternalEpisodeLabel>
+                <br />
+              </>
+            )}
             <ExternalEpisodeUl>
               {(podcast.podcast.data.googleEpisodeUrl !== '') && (
                 <li>
