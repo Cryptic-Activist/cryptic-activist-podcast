@@ -22,6 +22,7 @@ import asyncPostComment from './podcasts/postComment';
 import asyncUpdateHowManyReadApi from './podcasts/updateHowManyRead';
 import asyncPodcastsByCategoryApi from './podcasts/getPodcastsByCategory';
 import asyncPodcastsByTagApi from './podcasts/getPodcastsByTag';
+import asyncEditGetPodcast from './podcasts/admin/editPodcast';
 
 export default function* root() {
   yield all([
@@ -44,5 +45,6 @@ export default function* root() {
     takeLatest('REQUEST_UPDATE_HOW_MANY_READ', asyncUpdateHowManyReadApi),
     takeLatest('REQUEST_PODCASTS_BY_CATEGORY', asyncPodcastsByCategoryApi),
     takeLatest('REQUEST_PODCASTS_BY_TAG', asyncPodcastsByTagApi),
+    takeLatest('REQUEST_EDIT_GET_PODCAST', asyncEditGetPodcast),
   ]);
 }

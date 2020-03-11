@@ -8,6 +8,7 @@ import podcast from './podcasts/podcast';
 import uploadedPodcast from './podcasts/uploadPodcast';
 import podcastsByCategory from './podcasts/podcastsByCategory';
 import podcastsByTag from './podcasts/podcastsByTag';
+import editPodcast from './podcasts/editPodcast';
 
 export default combineReducers({
   user,
@@ -18,4 +19,5 @@ export default combineReducers({
   uploadedPodcast,
   podcastsByCategory,
   podcastsByTag,
+  editPodcast,
 });
