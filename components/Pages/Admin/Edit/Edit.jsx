@@ -6,6 +6,11 @@ import Router from 'next/router';
 
 import Layout from '../../../Layout';
 
+import UploadAudio from '../../../Uploader/UploadFieldAudio';
+import FileListAudio from '../../../Uploader/FileListAudio';
+import UploadCover from '../../../Uploader/UploadFieldCover';
+import FileListCover from '../../../Uploader/FileListCover';
+
 import {
   FaGoogle,
   FaSpotify,
@@ -248,6 +253,7 @@ function Edit(props) {
     const {
       History,
     } = props;
+    console.log('submit')
     if (allFieldsFilled) {
       const podcastInfo = {
         isSlugValid,
