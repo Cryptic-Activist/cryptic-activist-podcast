@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
+import Router from 'next/router';
 
 import Layout from '../../Layout';
 
@@ -22,9 +24,17 @@ import {
 } from '../../../styles/Pages/Admin/admin.styled-components';
 
 const Index = () => {
+  const userInfo = useSelector((state) => state.user)
 
   const [postsState, setPostsState] = useState(false);
   const [commentsState, setCommentsState] = useState(false);
+
+  if (userInfo.fetched) {
+    console.log('userInfo.data.isAdmin:', userInfo.data.isAdmin);
+    if (!userInfo.data.isAdmin) {
+      Router.push('/');
+    }
+  }
 
   const handlePosts = () => {
     setPostsState(true);

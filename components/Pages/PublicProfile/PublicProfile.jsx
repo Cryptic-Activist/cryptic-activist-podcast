@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
     publicProfile,
     user,
   } = state;
-  console.log('maptoprip:', publicProfile.publicProfile)
+
   return {
     publicProfile,
     user
@@ -62,8 +62,6 @@ const PublicProfile = (props) => {
   } = props;
 
   const dateFormatter = new Formatter();
-
-  console.log('publicProfile.publicProfile:', props);
 
   const handleVerifyFollow = async (userId, authorId) => {
     const res = await fetch('http://localhost:5000/users/verify/following/author',
@@ -369,10 +367,10 @@ const PublicProfile = (props) => {
           </Wrapper>
           <div className="container">
             <div className="row">
-              <RecentActivities
+              {/* <RecentActivities
                 activities={publicProfile.activities}
                 authorPicture={publicProfile.publicProfile.data.profileImage.url}
-              />
+              /> */}
             </div>
           </div>
         </>

@@ -13,8 +13,6 @@ class PublicProfile extends Component {
   static async getInitialProps(props) {
     const { store, isServer, asPath } = props.ctx;
     store.dispatch(getPublicProfile(asPath.substring(6, asPath.length)));
-    // store.dispatch(getMainBlogPost());
-    // store.dispatch(getMostRecentVideos());
     return { isServer };
   }
   render() {

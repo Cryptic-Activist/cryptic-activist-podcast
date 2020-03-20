@@ -4,6 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function getPodcastsByTagApi(tag) {
+  console.log('tags:', tag)
   const res = await fetch(`http://localhost:5000/podcasts/get/tag/${tag}`, {
     method: 'GET',
     mode: 'cors',
@@ -21,8 +22,11 @@ export default function* asyncPodcastsByTagApi(action) {
   try {
     const response = yield call(getPodcastsByTagApi, action.payload.tag);
 
+    console.log('responses:', response)
+
     yield put({ type: 'SUCCESS_PODCASTS_BY_TAG', payload: { data: response } });
   } catch (err) {
+    console.log('err tags:', err)
     yield put({ type: 'FAILURE_PODCASTS_BY_TAG' });
   }
 }

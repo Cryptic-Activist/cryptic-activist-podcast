@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 export function getPublicProfile(user) {
+  console.log('user:', user)
   return {
     type: 'REQUEST_GET_PUBLIC_PROFILE',
     payload: {

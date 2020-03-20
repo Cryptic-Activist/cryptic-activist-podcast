@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _, { uniqueId } from 'lodash';
 import Router from 'next/router';
@@ -38,6 +38,16 @@ import {
 
 import * as UploadPodcastAction from '../../../../store/actions/podcasts/uploadPodcast';
 
+const mapStateToProps = (state) => {
+  const {
+    user,
+  } = state;
+
+  return {
+    user,
+  }
+}
+
 const UploadNewPodcast = (props) => {
   const [isSlugValid, setIsSlugValid] = useState(true);
   const [slug, setSlug] = useState('');
@@ -54,17 +64,26 @@ const UploadNewPodcast = (props) => {
   const [enableCoverUploader, setEnableCoverUploader] = useState(false);
   const [warning, setWarning] = useState(false);
 
-  const userInfo = useSelector((state) => state.user.data);
+  const userInfo = useSelector((state) => state.user);
   const uploadedCover = useSelector((state) => state.uploadedPodcast.cover.data);
   const uploadedAudioFile = useSelector((state) => state.uploadedPodcast.audioFile.data);
   const dispatch = useDispatch();
+
+  console.log('userInfo:', userInfo)
+
+  if (userInfo.fetched) {
+    console.log('userInfo.data.isAdmin:', userInfo.data.isAdmin);
+    if (!userInfo.data.isAdmin) {
+      Router.push('/');
+    }
+  }
 
   const setGlobalVariable = async () => {
     const bodyRequest = {
       type: 'blog',
       title,
     };
-    const response = await fetch('http://localhost:5000/admin/blog/set/global-variable', {
+    const response = await fetch('http://localhost:5000/admin/podcasts/set/global-variable', {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -79,7 +98,7 @@ const UploadNewPodcast = (props) => {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `http://localhost:5000/admin/blog/validation/slug/${slug}`,
+      `http://localhost:5000/admin/podcasts/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -113,12 +132,6 @@ const UploadNewPodcast = (props) => {
   };
 
   const disabledSubmitButton = () => {
-    console.log('category:', category);
-    console.log('title:', title);
-    console.log('tags:', tags);
-    console.log('description:', description);
-    console.log('uploadedCover:', uploadedCover);
-    console.log('uploadedAudioFile:', uploadedAudioFile);
 
     if (category !== ''
       && title !== ''
@@ -640,4 +653,4 @@ UploadNewPodcast.propTypes = {
   History: PropTypes.shape().isRequired,
 };
 
-export default UploadNewPodcast;
+export default connect(mapStateToProps)(UploadNewPodcast);

@@ -18,8 +18,7 @@ async function getPublicProfileApi(user) {
 }
 
 async function getActivities(activities) {
-  console.log('acitvities:', activities)
-  const response = await fetch('http://localhost:5000/blog/get/user/activities', {
+  const response = await fetch('http://localhost:5000/users/get/user/activities', {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',
@@ -32,7 +31,7 @@ async function getActivities(activities) {
     }),
   });
   const data = await response.json();
-  console.log('data:', data);
+  console.log('data why so serious:', data);
   return data;
 };
 
@@ -41,7 +40,6 @@ export default function* asyncGetPublicProfileApi(action) {
     const response = yield call(getPublicProfileApi, action.payload.user);
 
     const activities = yield call(getActivities, response.posts);
-    // console.log('acitvities:', activities)
 
     yield put({ type: 'SUCCESS_GET_PUBLIC_PROFILE', payload: { data: response } });
     yield put({ type: 'SUCCESS_GET_PUBLIC_PROFILE_ACTIVITIES', payload: { data: activities } });
