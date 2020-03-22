@@ -23,7 +23,7 @@ async function loginAdminUserApi(adminUser, adminPassword) {
 }
 
 async function loginSetUserApi(id) {
-  const res = await fetch(`http://localhost:5000/auth/user/${id}`, {
+  const res = await fetch(`http://localhost:5002/auth/user/${id}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',

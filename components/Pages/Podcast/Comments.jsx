@@ -32,6 +32,7 @@ const Comments = (props) => {
   } = props;
 
 
+  console.log('comments:', comments);
 
   useEffect(() => {
     dispatch(getCommentsPodcast(podcastId));

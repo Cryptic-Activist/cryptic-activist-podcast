@@ -149,45 +149,37 @@ const Podcasts = (props) => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-6 col-12">
             <Host>
-              <Link href="https://twitter.com/" target="_blank">
-                <a>
-                  <ul>
-                    <li>
-                      <img src={HostPicture} alt="" />
-                    </li>
-                    <li className="hostInfo">
-                      <p>Davi Silva</p>
-                      <p className="twitter">@thecrypticdavid</p>
-                      <p className="desc">Host of Cryptic Activist</p>
-                    </li>
-                  </ul>
-                </a>
-              </Link>
+              <a href="https://twitter.com" target="_blank">
+                <ul>
+                  <li>
+                    <img src={HostPicture} alt="" />
+                  </li>
+                  <li className="hostInfo">
+                    <p>Davi Silva</p>
+                    <p className="twitter">@thecrypticdavid</p>
+                    <p className="desc">Host of Cryptic Activist</p>
+                  </li>
+                </ul>
+              </a>
             </Host>
           </div>
           <AvailableOn className="col-12">
             <h6>Also Available on</h6>
             <ul>
               <li>
-                <Link href="https://www.google.ca/" target="_blank">
-                  <a>
-                    <img src={GooglePodcast} alt="" />
-                  </a>
-                </Link>
+                <a href="https://www.google.ca/" target="_blank">
+                  <img src={GooglePodcast} alt="" />
+                </a>
               </li>
               <li>
-                <Link href="https://podcasters.spotify.com/" target="_blank">
-                  <a>
-                    <img src={SpotifyPodcast} alt="" />
-                  </a>
-                </Link>
+                <a href="https://podcasters.spotify.com/" target="_blank">
+                  <img src={SpotifyPodcast} alt="" />
+                </a>
               </li>
               <li>
-                <Link href="https://www.apple.com/ca/itunes/podcasts/discover/" target="_blank">
-                  <a>
-                    <img src={ITunesPodcast} alt="" />
-                  </a>
-                </Link>
+                <a href="https://www.apple.com/ca/itunes/podcasts/discover/" target="_blank">
+                  <img src={ITunesPodcast} alt="" />
+                </a>
               </li>
             </ul>
           </AvailableOn>

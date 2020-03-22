@@ -64,7 +64,9 @@ const PublicProfile = (props) => {
   const dateFormatter = new Formatter();
 
   const handleVerifyFollow = async (userId, authorId) => {
-    const res = await fetch('http://localhost:5000/users/verify/following/author',
+    console.log('userId:', userId)
+    console.log('authorId:', authorId)
+    const res = await fetch('http://localhost:5002/users/verify/following/author',
       {
         method: 'POST',
         mode: 'cors',
@@ -83,6 +85,7 @@ const PublicProfile = (props) => {
   };
 
   const handleFollowAuthor = async () => {
+    console.log('publicProfile.publicProfile.data:', publicProfile.publicProfile.data)
     const res = await handleVerifyFollow(publicProfile.publicProfile.data._id, user.data._id);
     if (res.following === -1) {
       dispatch(UserActions.setFollowAuthor(user.data._id, publicProfile.publicProfile.data._id));
@@ -108,6 +111,7 @@ const PublicProfile = (props) => {
       setIsFollowing(false);
     }
   };
+
   handleVerify();
 
   let FollowBtn;

@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function getLoginApi() {
-  const res = await fetch('http://localhost:5000/auth/user', {
+  const res = await fetch('http://localhost:5002/auth/user', {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
@@ -23,6 +23,7 @@ export default function* asyncLoginUser() {
 
     yield put({ type: 'SUCCESS_LOGIN_USER', payload: { data: response } });
   } catch (err) {
+    console.log('err login user:', err)
     yield put({ type: 'FAILURE_LOGIN_USER' });
   }
 }

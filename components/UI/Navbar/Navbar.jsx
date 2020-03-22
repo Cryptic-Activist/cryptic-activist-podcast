@@ -27,7 +27,6 @@ import Login from '../LoginForm/Login';
 import * as UserActions from '../../../store/actions/user/user';
 import * as NavbarActions from '../../../store/actions/navbar';
 
-
 const Navbar = () => {
   const [userMenuState, setUserMenuState] = useState({
     showUserMenu: false,

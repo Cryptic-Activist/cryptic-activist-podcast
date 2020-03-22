@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function getPublicProfileApi(user) {
-  const res = await fetch(`http://localhost:5000/users/public-profile/${user}`, {
+  const res = await fetch(`http://localhost:5002/users/public-profile/${user}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
@@ -18,7 +18,7 @@ async function getPublicProfileApi(user) {
 }
 
 async function getActivities(activities) {
-  const response = await fetch('http://localhost:5000/users/get/user/activities', {
+  const response = await fetch('http://localhost:5003/blog/get/user/activities', {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',

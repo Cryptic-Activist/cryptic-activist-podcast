@@ -31,7 +31,6 @@ async function getRelatedPodcastsApi(category, slug) {
   return data;
 }
 
-
 export default function* asyncGetPodcast(action) {
   try {
     const response = yield call(getPodcastApi, action.payload.slug);
