@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function updateProfileUserInfoApi(updateObj) {
-  const res = await fetch('http://localhost:5002/users/update', {
+  const res = await fetch('https://cryptic-activist-user-api.herokuapp.com/users/update', {
     method: 'PUT',
     mode: 'cors',
     cache: 'no-cache',

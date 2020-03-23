@@ -66,7 +66,7 @@ const PublicProfile = (props) => {
   const handleVerifyFollow = async (userId, authorId) => {
     console.log('userId:', userId)
     console.log('authorId:', authorId)
-    const res = await fetch('http://localhost:5002/users/verify/following/author',
+    const res = await fetch('https://cryptic-activist-user-api.herokuapp.com/users/verify/following/author',
       {
         method: 'POST',
         mode: 'cors',

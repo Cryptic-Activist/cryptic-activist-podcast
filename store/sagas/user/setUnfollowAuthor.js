@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function setUnfollowAuthorApi(userId, authorId) {
-  const res = await fetch('http://localhost:5002/users/update/unfollow/author', {
+  const res = await fetch('https://cryptic-activist-user-api.herokuapp.com/users/update/unfollow/author', {
     method: 'PUT',
     mode: 'cors',
     cache: 'no-cache',

@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function setFollowAuthorApi(userId, authorId) {
-  const res = await fetch('http://localhost:5002/users/update/follow/author', {
+  const res = await fetch('https://cryptic-activist-user-api.herokuapp.com/users/update/follow/author', {
     method: 'PUT',
     mode: 'cors',
     cache: 'no-cache',

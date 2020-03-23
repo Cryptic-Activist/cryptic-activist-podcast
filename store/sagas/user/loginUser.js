@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function getLoginApi() {
-  const res = await fetch('http://localhost:5002/auth/user', {
+  const res = await fetch('https://cryptic-activist-user-api.herokuapp.com/auth/user', {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',

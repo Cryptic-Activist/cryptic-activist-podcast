@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function refreshUserDataApi(id) {
-  const res = await fetch('http://localhost:5002/auth/user/refresh', {
+  const res = await fetch('https://cryptic-activist-user-api.herokuapp.com/auth/user/refresh', {
     method: 'POST',
     mode: 'cors',
     cache: 'no-cache',

@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function registerAdminUserApi(adminRegisterInfo, profilePictureId) {
-  const response = await fetch('http://localhost:5002/admin/user/register/admin',
+  const response = await fetch('https://cryptic-activist-user-api.herokuapp.com/admin/user/register/admin',
     {
       method: 'POST',
       mode: 'cors',
@@ -23,7 +23,7 @@ async function registerAdminUserApi(adminRegisterInfo, profilePictureId) {
 }
 
 async function loginUserApi(id) {
-  const res = await fetch(`http://localhost:5002/auth/user/${id}`, {
+  const res = await fetch(`https://cryptic-activist-user-api.herokuapp.com/auth/user/${id}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',

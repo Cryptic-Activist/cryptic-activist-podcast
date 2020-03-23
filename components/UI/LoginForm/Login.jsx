@@ -47,7 +47,7 @@ const Login = (props) => {
             <LoginButton
               icon="github"
               backgroundColor="#333"
-              endpoint="http://localhost:5002/auth/github"
+              endpoint="https://cryptic-activist-user-api.herokuapp.com/auth/github"
               providerName="Github"
             />
           </li>
@@ -59,7 +59,7 @@ const Login = (props) => {
             <LoginButton
               icon="facebook"
               backgroundColor="#3a5797"
-              endpoint="http://localhost:5002/auth/facebook"
+              endpoint="https://cryptic-activist-user-api.herokuapp.com/auth/facebook"
               providerName="Facebook"
             />
           </li>
