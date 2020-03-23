@@ -35,7 +35,7 @@ const Login = (props) => {
             <LoginButton
               icon="google"
               backgroundColor="#4285f4"
-              endpoint="//localhost:5002/auth/google"
+              endpoint="https://cryptic-activist-user-api.herokuapp.com/auth/google"
               providerName="Google"
             />
           </li>
