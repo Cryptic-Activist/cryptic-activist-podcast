@@ -29,7 +29,7 @@ const PodcastsContent = () => {
 
   const getFirstPosts = async () => {
     const response = await fetch(
-      'http://localhost:5000/podcasts/',
+      'https://cryptic-activist-podcast-api.herokuapp.com/podcasts/',
       {
         method: 'GET',
         mode: 'cors',
@@ -47,7 +47,7 @@ const PodcastsContent = () => {
   const getMorePosts = async () => {
     setPage(page + 1);
     const tempPage = page + 1;
-    const response = await fetch(`http://localhost:5000/podcasts/?page=${tempPage}`, {
+    const response = await fetch(`https://cryptic-activist-podcast-api.herokuapp.com/podcasts/?page=${tempPage}`, {
       method: 'GET',
       mode: 'cors',
       cache: 'no-cache',

@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function getLogoutApi() {
-  const res = await fetch('http://localhost:5000/auth/logout', {
+  const res = await fetch('https://cryptic-activist-podcast-api.herokuapp.com/auth/logout', {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',

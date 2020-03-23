@@ -6,7 +6,7 @@ import 'isomorphic-fetch';
 
 async function postCommentApi(userId, podcastId, comment) {
   console.log('podcastId in saga:', podcastId)
-  const res = await fetch('http://localhost:5000/podcasts/contributor/comment/podcast',
+  const res = await fetch('https://cryptic-activist-podcast-api.herokuapp.com/podcasts/contributor/comment/podcast',
     {
       method: 'POST',
       mode: 'cors',

@@ -5,7 +5,7 @@ import {
 
 async function editGetPodcastApi(slug) {
   console.log('did you mean it?')
-  const res = await fetch(`http://localhost:5000/admin/podcasts/get/slug/${slug}`, {
+  const res = await fetch(`https://cryptic-activist-podcast-api.herokuapp.com/admin/podcasts/get/slug/${slug}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',

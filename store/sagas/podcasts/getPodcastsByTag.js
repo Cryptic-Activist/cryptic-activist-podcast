@@ -5,7 +5,7 @@ import {
 
 async function getPodcastsByTagApi(tag) {
   console.log('tags:', tag)
-  const res = await fetch(`http://localhost:5000/podcasts/get/tag/${tag}`, {
+  const res = await fetch(`https://cryptic-activist-podcast-api.herokuapp.com/podcasts/get/tag/${tag}`, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',

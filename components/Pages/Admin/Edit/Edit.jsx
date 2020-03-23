@@ -100,7 +100,7 @@ function Edit(props) {
       type: 'blog',
       title,
     };
-    const response = await fetch('http://localhost:5000/admin/blog/set/global-variable', {
+    const response = await fetch('https://cryptic-activist-podcast-api.herokuapp.com/admin/blog/set/global-variable', {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -115,7 +115,7 @@ function Edit(props) {
 
   const verifySlug = async () => {
     const response = await fetch(
-      `http://localhost:5000/admin/blog/validation/slug/${slug}`,
+      `https://cryptic-activist-podcast-api.herokuapp.com/admin/blog/validation/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -132,7 +132,7 @@ function Edit(props) {
 
   const uploadPodcast = async (podcast) => {
     const response = await fetch(
-      'http://localhost:5000/podcasts/upload',
+      'https://cryptic-activist-podcast-api.herokuapp.com/podcasts/upload',
       {
         method: 'POST',
         mode: 'cors',

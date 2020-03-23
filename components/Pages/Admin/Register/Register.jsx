@@ -61,7 +61,7 @@ const RegisterAdmin = (props) => {
   };
 
   const verifyAdminUser = async () => {
-    const response = await fetch(`http://localhost:5000/admin/user/verify/admin/username/${adminUser}`,
+    const response = await fetch(`https://cryptic-activist-podcast-api.herokuapp.com/admin/user/verify/admin/username/${adminUser}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -76,7 +76,7 @@ const RegisterAdmin = (props) => {
   };
 
   const LoginSU = async (userInfo) => {
-    const response = await fetch('http://localhost:5000/admin/user/verify/su',
+    const response = await fetch('https://cryptic-activist-podcast-api.herokuapp.com/admin/user/verify/su',
       {
         method: 'POST',
         mode: 'cors',

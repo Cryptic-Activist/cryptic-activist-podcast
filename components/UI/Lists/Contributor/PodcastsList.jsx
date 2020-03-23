@@ -35,7 +35,7 @@ const List = (props) => {
   const getBlogPostBySlug = async () => {
     const { slug } = this.state;
     const response = await fetch(
-      `http://localhost:5000/blog/get/slug/${slug}`,
+      `https://cryptic-activist-podcast-api.herokuapp.com/blog/get/slug/${slug}`,
       {
         method: 'GET',
         mode: 'cors',
@@ -58,7 +58,7 @@ const List = (props) => {
       id,
     } = post[0];
     await fetch(
-      `http://localhost:5000/blog/delete/cover/${cover._id}`,
+      `https://cryptic-activist-podcast-api.herokuapp.com/blog/delete/cover/${cover._id}`,
       {
         method: 'DELETE',
         mode: 'cors',
@@ -70,7 +70,7 @@ const List = (props) => {
       },
     );
 
-    await fetch(`http://localhost:5000/blog/delete/${id}`, {
+    await fetch(`https://cryptic-activist-podcast-api.herokuapp.com/blog/delete/${id}`, {
       method: 'DELETE',
       mode: 'cors',
       cache: 'no-cache',

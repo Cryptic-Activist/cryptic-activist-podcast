@@ -6,7 +6,7 @@ import 'isomorphic-fetch';
 
 async function updateHowManyReadApi(slug, howManyReadNumber) {
   const response = fetch(
-    'http://localhost:5000/podcast/update/post/how-many-read',
+    'https://cryptic-activist-podcast-api.herokuapp.com/podcast/update/post/how-many-read',
     {
       method: 'PUT',
       mode: 'cors',

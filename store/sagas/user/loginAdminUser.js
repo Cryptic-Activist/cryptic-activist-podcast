@@ -4,7 +4,7 @@ import {
 } from 'redux-saga/effects';
 
 async function loginAdminUserApi(adminUser, adminPassword) {
-  const response = await fetch('http://localhost:5000/admin/user/login/admin',
+  const response = await fetch('https://cryptic-activist-podcast-api.herokuapp.com/admin/user/login/admin',
     {
       method: 'POST',
       mode: 'cors',
